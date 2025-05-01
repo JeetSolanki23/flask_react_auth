@@ -7,6 +7,10 @@ from app import db
 
 user_bp = Blueprint('user', __name__)
 
+@user_bp.route('/', methods=['GET'])
+def index():
+	return "hello"
+
 @user_bp.route('/user', methods=['GET'])
 @jwt_required()
 def get_user():
