@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiFetch } from "../api";
+import { BASE_URL } from "../config";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -10,7 +10,7 @@ const Dashboard = () => {
     const token = localStorage.getItem("token");
     if (!token) return navigate("/");
 
-    apiFetch("/user", {
+    fetch(`${BASE_URL}/user`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiFetch } from "../api";
+import { BASE_URL } from "../config";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', password: '', confirmPassword: '' });
@@ -15,7 +15,7 @@ const Signup = () => {
     if (form.password !== form.confirmPassword) {
       return setError("Passwords do not match");
     }
-    const res = await apiFetch("/signup", {
+    const res = await fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form)
