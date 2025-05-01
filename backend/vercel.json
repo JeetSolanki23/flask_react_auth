@@ -8,7 +8,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "backend/run.py"
+      "dest": "backend/run"
     }
   ]
 }
